@@ -1,0 +1,55 @@
+endpoint: "https://af-graphql-demo-20251122.azurewebsites.net/api/graphql"
+
+transport:
+  type: streamable_http
+  port: 8000
+  stateful_mode: false
+
+# Explicitly disable authentication
+auth:
+  disabled: true
+
+# Enable introspection to automatically discover available operations
+introspection:
+  execute:
+    enabled: true
+  introspect:
+    enabled: true
+    minify: true
+  search:
+    enabled: true
+    minify: true
+  validate:
+    enabled: true
+
+# We need to specify local operations since we're not using GraphOS
+operations:
+  source: local
+  paths:
+    - ./data/operations
+
+# For a standalone GraphQL endpoint, we'll create a minimal schema file
+schema:
+  source: local
+  path: ./data/api.graphql
+
+# CORS settings for web-based MCP clients
+cors:
+  enabled: true
+  allow_any_origin: true
+  allow_methods: ["GET", "POST", "OPTIONS"]
+  allow_headers: ["content-type", "mcp-protocol-version", "mcp-session-id"]
+
+# Enable health checks
+health_check:
+  enabled: true
+  path: "/health"
+
+# Logging configuration
+logging:
+  level: info
+
+# Allow mutations (set to "none" if you only want read operations)
+overrides:
+  mutation_mode: all
+  enable_explorer: false

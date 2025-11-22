@@ -1,0 +1,10 @@
+node_modules/
+dist/
+data/
+.env
+*.db
+.DS_Store
+.vscode/
+.funcignore
+.git
+local.settings.json

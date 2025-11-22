@@ -1,0 +1,13 @@
+services:
+  apollo-mcp-server:
+    image: ghcr.io/apollographql/apollo-mcp-server:latest
+    container_name: apollo-mcp-server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app:ro
+    working_dir: /app
+    command: ["mcp_config.yaml"]
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production

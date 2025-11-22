@@ -1,0 +1,26 @@
+{
+  "name": "graphql_demo",
+  "version": "0.1.0",
+  "description": "Apollo GraphQL server (mock data) for Azure Functions",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "func:start": "func start",
+    "start:func": "func start",
+    "build": "echo 'No build needed for Node.js'",
+    "test": "node -e \"console.log('no tests')\""
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.0",
+    "@as-integrations/azure-functions": "^0.2.2",
+    "dotenv": "^16.0.3",
+    "graphql": "^16.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
